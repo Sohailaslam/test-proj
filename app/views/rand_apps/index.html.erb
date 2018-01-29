@@ -14,7 +14,14 @@
 </div>
 
 <hr/>
-
+<!-------------------------Chart----------------------------------->
+<div class="container">
+    <div class="row mb-lg">
+       <h1>Chart</h1>
+    </div>
+<%= column_chart RandApp.group(:number).count %>
+</div>
+<hr/>
 <!-------------------------List of Generated RANDOM INTEGERS----------------------------------->
 <div class="container list-int">
     <div class="row">
@@ -44,29 +51,3 @@
 </div>
 
 <hr/>
-
-<!--------------------------Modal to Update and Detete Integer--------------------->
-
-  <div class="modal fade" id="modal-integer-edit" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Edit this Integer</h4>
-        </div>
-        <div class="modal-body">
-          <form>
-              <input class="form-control input-md">
-              <input type="submit" class="btn btn-primary btn-md mt-lg" value="Edit">
-          </form>
-              <button class="btn btn-primary btn-md mt-lg">Delete this Integer</button>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>

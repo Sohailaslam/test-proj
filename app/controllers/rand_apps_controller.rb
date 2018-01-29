@@ -43,6 +43,4 @@ class RandAppsController < ApplicationController
   def rand_app_params
     params.require(:rand_app).permit(:number)
   end
-  def home
-  end
 end
