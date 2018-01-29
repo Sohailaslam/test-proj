@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :rand_apps
+  resources :rand_apps do
+    collection do
+      delete :destroy_all
+    end
+
+  end
   
   # resources :posts do
   #   member do

@@ -3,14 +3,13 @@
     <div class="row">
        <h1>Randomize It</h1>
     </div>
-    <div class="row mb-lg">
+    <div class="row mb-lg mt-lg">
         <%= form_for(@rand_app) do |f| %>
-            <%= f.submit "Randomize It form", :class => "btn btn-primary mb-lg" %>
+            <%= f.submit "Randomize It", :class => "btn btn-primary" %>
         <% end %>
     </div>
     <div class="row">
-        <a href="#" class="btn btn-primary">Reset all the Data</a>
-        <%= link_to "Reset Data" %>
+        <%= link_to "Reset all the Data", destroy_all_rand_apps_path, :method => :delete ,:class => "btn btn-primary" %>
     </div>
 </div>
 
@@ -30,7 +29,8 @@
             <% if @rand_apps.present? %>
                 <% @rand_apps.each do |num| %>
                   <tr>
-                    <td><%= num.number %></td>
+                    <td><%= link_to num.number, "#",{ "data-toggle"=>"modal","data-target"=>"#modal-integer-edit"} %></td>
+                    <%= render partial: 'modal', locals: {random: num}%>
                   </tr>
                 <% end %>
             <% else %>
@@ -45,14 +45,9 @@
 
 <hr/>
 
-<!--------------------------Modal--------------------->
+<!--------------------------Modal to Update and Detete Integer--------------------->
 
-<div class="container">
-  <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-interger-edit">Edit Integer</button>
-
-  <!-- Modal -->
-  <div class="modal fade" id="modal-interger-edit" role="dialog">
+  <div class="modal fade" id="modal-integer-edit" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -66,6 +61,7 @@
               <input class="form-control input-md">
               <input type="submit" class="btn btn-primary btn-md mt-lg" value="Edit">
           </form>
+              <button class="btn btn-primary btn-md mt-lg">Delete this Integer</button>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -74,4 +70,3 @@
       
     </div>
   </div>
-</div>
