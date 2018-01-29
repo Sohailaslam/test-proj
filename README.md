@@ -22,3 +22,14 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+* 
+ANSWERS:
+Answer to Question 1:
+
+First of all it depends on current_user. If current_user is not present, it will give an error. otherwise
+it will move on and will take 
+
+
+Amswer to Question 2:
+
+
