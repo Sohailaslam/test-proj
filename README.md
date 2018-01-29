@@ -46,12 +46,24 @@ Thus in redirect_to it is necessary for whole page to load but in render/ a part
 
 
 Answer to Question 4: 
+[1,3,37,9,6,7,8,4].sum will return sum of all elements of this array.
 
 
+Answer to Question 5: 
+PATH              Method   URI                         Controller#Action
+    comments_post GET    /posts/:id/comments(.:format) posts#comments
+bulk_upload_posts POST   /posts/bulk_upload(.:format)  posts#bulk_upload
+            posts GET    /posts(.:format)              posts#index
+                  POST   /posts(.:format)              posts#create
+         new_post GET    /posts/new(.:format)          posts#new
+        edit_post GET    /posts/:id/edit(.:format)     posts#edit
+             post GET    /posts/:id(.:format)          posts#show
+                  PATCH  /posts/:id(.:format)          posts#update
+                  PUT    /posts/:id(.:format)          posts#update
+                  DELETE /posts/:id(.:format)          posts#destroy
 
 
-
-
-
-
+Answer to Question 6:
+User.find(5) will give couldn't find user with id = 5
+User.find_by_id(5) will give nil
 

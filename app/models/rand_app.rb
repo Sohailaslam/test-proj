@@ -1,0 +1,2 @@
+class RandApp < ApplicationRecord
+end

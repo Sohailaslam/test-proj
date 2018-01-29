@@ -1,0 +1,2 @@
+module RandAppsHelper
+end
