@@ -4,24 +4,21 @@
        <h1>Randomize It</h1>
     </div>
     <div class="row mb-lg mt-lg">
-        <%= form_for(@rand_app) do |f| %>
+        <%= form_with(model: @rand_app) do |f| %>
             <%= f.submit "Randomize It", :class => "btn btn-primary" %>
         <% end %>
     </div>
     <div class="row">
-        <%= link_to "Reset all the Data", destroy_all_rand_apps_path, :method => :delete ,:class => "btn btn-primary" %>
+        <%= link_to "Reset all the Data", destroy_all_rand_apps_path,:remote => true ,:method => :delete ,:class => "btn btn-primary" %>
     </div>
 </div>
 
 <hr/>
 <!-------------------------Chart----------------------------------->
-<div class="container">
-    <div class="row mb-lg">
-       <h1>Chart</h1>
-    </div>
-<%= column_chart RandApp.group(:number).count %>
+<div id="graph">
+   
+        <%= render 'graph' %>
 </div>
-<hr/>
 <!-------------------------List of Generated RANDOM INTEGERS----------------------------------->
 <div class="container list-int">
     <div class="row">
@@ -36,18 +33,16 @@
             <% if @rand_apps.present? %>
                 <% @rand_apps.each do |num| %>
                   <tr>
-                    <td><%= link_to num.number, "#",{ "data-toggle"=>"modal","data-target"=>"#modal-integer-edit"} %></td>
-                    <%= render partial: 'modal', locals: {random: num}%>
+                    <td>
+                    <%= link_to num.number, edit_rand_app_path(num), :remote => true %></td> %>
                   </tr>
                 <% end %>
-            <% else %>
-                <tr>
-                    <td> No Number Generated yet</td>
-                </tr>
+            
             <% end %>
             </tbody>
         </table>
     </div>
+    <div id="mm"></div>
 </div>
 
 <hr/>

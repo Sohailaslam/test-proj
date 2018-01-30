@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180129130312) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "rand_apps", force: :cascade do |t|
     t.integer "number"
     t.datetime "created_at", null: false

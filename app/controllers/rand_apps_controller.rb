@@ -4,6 +4,10 @@ class RandAppsController < ApplicationController
     @rand_apps = RandApp.all.order("created_at DESC")
     @rand_app = RandApp.new
   end
+  
+  def edit
+    @rand_app = RandApp.find(params[:id])
+  end
   def create
     @rand_apps = RandApp.new(number: rand(11) )
     respond_to do |format|
@@ -36,7 +40,11 @@ class RandAppsController < ApplicationController
   
   def destroy_all
     RandApp.destroy_all
-    redirect_to rand_apps_path
+    # redirect_to rand_apps_path
+    respond_to do |format|
+        format.html { redirect_to rand_apps_path, notice: 'All Destroyed' }
+        format.js
+    end
   end
   
   private

@@ -1,0 +1,3 @@
+$('#graph').html("<%= j render 'graph' %>");
+// $('#graph').html("<div id='chart-1'></div>");
+$('tbody').prepend("<tr> <td> <%= j link_to @rand_apps.number, edit_rand_app_path(@rand_apps), :remote => true %> </td></tr>");
