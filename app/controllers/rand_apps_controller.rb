@@ -43,7 +43,7 @@ class RandAppsController < ApplicationController
     # redirect_to rand_apps_path
     respond_to do |format|
         format.html { redirect_to rand_apps_path, notice: 'All Destroyed' }
-        format.js
+        format.js { flash[:notice] = "All Destroyed" }
     end
   end
   
